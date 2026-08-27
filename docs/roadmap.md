@@ -68,7 +68,7 @@ representative client performance.
 
 | Goal | Status | Depends on | Capability unlocked |
 |---|---|---|---|
-| D0 | proposed | None | Customer-shaped deployment brief and baseline |
+| D0 | complete | None | Customer-shaped deployment brief and baseline |
 | G00 | proposed | D0 | Runnable project shell |
 | G01 | proposed | G00 | Typed domain contracts |
 | G02 | proposed | G01 | Enforced workflow state |

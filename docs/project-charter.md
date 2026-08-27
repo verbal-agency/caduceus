@@ -53,7 +53,9 @@ The first buyer hypothesis is a provider prior-authorization or revenue-cycle
 operations organization; the daily operator is an exception specialist. The
 core reference workflow is one lumbar MRI denial that produces the correct
 administrative proposal but remains review-required and unexecuted. This buyer
-hypothesis must be validated in Goal D0.
+hypothesis was retained after D0's external evidence review and remains
+unvalidated until direct domain-expert or prospective-user evidence is
+available.
 
 The differentiated contribution is evidence-aware institutional authorization,
 not generic agent orchestration, prior-authorization automation, synthetic FHIR,
@@ -83,9 +85,10 @@ unsafe to automate without explicit evidence and authority checks.
 
 ## Target actors and decision rights
 
-These actors are hypotheses until Goal D0 validates them. The authority column
-defines product boundaries; organizational titles may change without changing
-those boundaries.
+These actors were retained as bounded design hypotheses after D0's external
+evidence review; they have not been customer-validated. The authority column
+defines product boundaries, and organizational titles may change without
+changing those boundaries.
 
 | ID | Actor | Primary need | Decision right or boundary |
 |---|---|---|---|
@@ -110,9 +113,10 @@ The hypothesized current-state workflow is:
 7. Route judgment to an attributable reviewer and execute only an independently
    authorized action.
 
-Goal D0 must replace this hypothesis with a sourced workflow map, including
-actual handoffs, systems, failure points, and the operator's definition of
-review-ready. The product intervention is bounded as follows:
+D0 replaced this outline with a sourced workflow map covering likely handoffs,
+systems, failure points, and a testable review-ready definition. Because no
+interviews were accessible, those operational details remain hypotheses routed
+to B07 for direct validation. The product intervention is bounded as follows:
 
 | Current failure mode | Product capability | Preserved boundary |
 |---|---|---|
@@ -204,18 +208,19 @@ each; later goals verify those choices against working contracts.
 
 | ID | Assumption or decision | Current status | Resolution gate |
 |---|---|---|---|
-| AS-01 | Provider prior-authorization leadership is the initial economic buyer. | Unvalidated hypothesis. | D0 discovery evidence and decision record. |
-| AS-02 | An exception specialist is the daily operator and the documented workflow reflects their highest-friction work. | Unvalidated hypothesis. | D0 workflow map and operator evidence. |
-| AS-03 | Reducing effort and time to a review-ready case is valuable without increasing risk or review burden. | Unvalidated hypothesis. | D0 baseline/value hypothesis; later shadow-pilot evidence for a client claim. |
-| AS-04 | Operators and reviewers agree on a testable definition of review-ready. | Unvalidated hypothesis. | D0 definition and stakeholder review. |
-| AS-05 | A narrow FHIR R4 and Da Vinci-aligned adapter surface can be recognizable without overstating conformance. | Design hypothesis. | D0 architecture decision, then G03/G04 contract tests. |
+| AS-01 | Provider prior-authorization leadership is the initial economic buyer. | Retained but unvalidated after D0 evidence review. | B07 direct discovery evidence. |
+| AS-02 | An exception specialist is the daily operator and the documented workflow reflects their highest-friction work. | Retained but unvalidated after D0 evidence review. | B07 workflow and operator evidence. |
+| AS-03 | Reducing effort and time to a review-ready case is valuable without increasing risk or review burden. | Retained but unvalidated after D0 evidence review. | G10 synthetic baseline; EV-04/B06 for a client claim. |
+| AS-04 | Operators and reviewers agree on a testable definition of review-ready. | Definition specified in D0 but user agreement is unvalidated. | B07 operator/reviewer evidence. |
+| AS-05 | A narrow FHIR R4 and Da Vinci-aligned adapter surface can be recognizable without overstating conformance. | D0 design decision; not yet contract-tested. | G03/G04 contract tests, then G12 external alignment. |
 | AS-06 | Some external evaluation tasks can be compared without changing their verifier semantics. | Unknown. | G12 crosswalk and evidence report. |
 | AS-07 | The selected deployment footprint, adoption model, and handoff package fit a prospective client environment. | Unknown. | D0 hypothesis, G19 deployment proof, and future client validation. |
 | AS-08 | The project creates sufficient interview or client interest to justify a governed shadow pilot. | Unknown. | G20 portfolio feedback and backlog item B06. |
 
-AS-01 through AS-04 are material inputs to the first deployment. D0 may revise
-them when evidence supports the change, but must record the decision and update
-the affected charter and roadmap references before G00 becomes eligible.
+AS-01 through AS-04 remain material inputs to a real deployment. D0 bounded
+them sufficiently for the synthetic portfolio shell; B07 or later client
+evidence may revise them, in which case the charter and affected roadmap goals
+must be updated before making customer-fit claims.
 
 ## Canonical project outcomes
 

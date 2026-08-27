@@ -21,9 +21,8 @@ defined in the [project-charter identifier key](docs/project-charter.md#identifi
 - [`docs/backlog.md`](docs/backlog.md) contains optional work that is outside the
   core roadmap.
 
-No goal is active yet. An explicit request to begin or `cycle` should select
-the first `proposed` roadmap goal whose dependencies are complete; initially
-that is `D0`, which defines the buyer, operator workflow, value baseline, thin
-slice, and build-versus-reuse decisions before implementation. The governed
-multi-agent `MA-*` phase remains ineligible until D0 and the complete
-single-agent core are explicitly confirmed stable.
+Goal `D0` is complete. It defines the buyer, operator workflow, value baseline,
+thin slice, and build-versus-reuse decisions; `G00` is the first proposed,
+eligible implementation goal and is not yet active. The governed multi-agent
+`MA-*` phase remains ineligible until the complete single-agent core is
+explicitly confirmed stable.
