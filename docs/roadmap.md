@@ -69,7 +69,7 @@ representative client performance.
 | Goal | Status | Depends on | Capability unlocked |
 |---|---|---|---|
 | D0 | complete | None | Customer-shaped deployment brief and baseline |
-| G00 | proposed | D0 | Runnable project shell |
+| G00 | complete | D0 | Runnable project shell |
 | G01 | proposed | G00 | Typed domain contracts |
 | G02 | proposed | G01 | Enforced workflow state |
 | G03 | proposed | G00, G01 | Standards-recognizable synthetic FHIR R4 records |

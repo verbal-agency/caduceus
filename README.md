@@ -21,8 +21,44 @@ defined in the [project-charter identifier key](docs/project-charter.md#identifi
 - [`docs/backlog.md`](docs/backlog.md) contains optional work that is outside the
   core roadmap.
 
-Goal `D0` is complete. It defines the buyer, operator workflow, value baseline,
-thin slice, and build-versus-reuse decisions; `G00` is the first proposed,
-eligible implementation goal and is not yet active. The governed multi-agent
-`MA-*` phase remains ineligible until the complete single-agent core is
-explicitly confirmed stable.
+Goals `D0` and `G00` are complete. `G00` establishes the local service and test
+foundation; `G01` is the first proposed, eligible goal and is not yet active.
+The governed multi-agent `MA-*` phase remains ineligible until the complete
+single-agent core is explicitly confirmed stable.
+
+## Local development
+
+Prerequisites: Python 3.12 or newer and [uv](https://docs.astral.sh/uv/).
+
+```bash
+uv sync --group dev
+uv run pytest
+uv run uvicorn caduceus.app:app --host 127.0.0.1 --port 8765
+```
+
+In a separate terminal, verify the local service:
+
+```bash
+curl http://127.0.0.1:8765/health
+```
+
+The endpoint returns `{"status":"healthy"}`. The documented test command is
+`uv run pytest`; run `uv run python scripts/check_synthetic_data.py` to check
+the fixture/example data policy separately.
+
+## Synthetic-data-only policy
+
+Never add real protected health information (PHI), client data, proprietary EHR
+exports, or production credentials to this repository. Committed fixtures and
+examples must be synthetic. Before adding a fixture or example directory at
+`fixtures/`, `examples/`, or `tests/fixtures/`, add a `SYNTHETIC_DATA.md` file
+at its root stating its source and confirming that all contents are synthetic.
+The automated check enforces that marker requirement; it does not make an
+unverified claim that arbitrary data is safe to commit.
+
+## Initial architecture
+
+The service currently exposes only a health route. Adapter implementations are
+intentionally absent: FHIR records, payer behavior, policy retrieval, model
+integration, and consequential execution are introduced by their owning goals.
+See [ADR 0001](docs/adr/0001-local-service-and-adapter-boundaries.md).
