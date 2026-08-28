@@ -72,7 +72,7 @@ representative client performance.
 | G00 | complete | D0 | Runnable project shell |
 | G01 | complete | G00 | Typed domain contracts |
 | G02 | complete | G01 | Enforced workflow state |
-| G03 | proposed | G00, G01 | Standards-recognizable synthetic FHIR R4 records |
+| G03 | complete | G00, G01 | Standards-recognizable synthetic FHIR R4 records |
 | G04 | proposed | G00, G01 | Da Vinci-aligned deterministic payer simulator |
 | G05 | proposed | G01 | Versioned policy repository |
 | G06 | proposed | G01, G03, G05 | Claim provenance validation |
@@ -1110,6 +1110,6 @@ A2A-compatible transport, healthcare transaction profile, dual authority
 envelopes, bounded negotiation, disclosure policy, human escalation,
 adversarial release gates, and a provider-payer lifecycle.
 
-The first eligible goal is **G03**. It remains proposed until the user explicitly
+The first eligible goal is **G04**. It remains proposed until the user explicitly
 asks to begin or invokes `cycle`. No `MA-*` goal is eligible while any core goal
 is incomplete or core stability is unconfirmed.

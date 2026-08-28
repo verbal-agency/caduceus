@@ -21,8 +21,8 @@ defined in the [project-charter identifier key](docs/project-charter.md#identifi
 - [`docs/backlog.md`](docs/backlog.md) contains optional work that is outside the
   core roadmap.
 
-Goals `D0`, `G00`, `G01`, and `G02` are complete. `G02` makes workflow state
-changes deterministic and service-mediated; `G03` is the first proposed,
+Goals `D0`, `G00`, `G01`, `G02`, and `G03` are complete. `G03` adds a declared
+synthetic FHIR R4 fixture subset and read-only adapter; `G04` is the first proposed,
 eligible goal and is not yet active.
 The governed multi-agent `MA-*` phase remains ineligible until the complete
 single-agent core is explicitly confirmed stable.
@@ -65,8 +65,11 @@ claims, action proposals, authorization requests, and authorization decisions.
 The `caduceus.workflow` module defines the case-state enum, explicit allowed
 transition table, immutable state snapshots, and service boundary for recording
 state changes. It contains no authorization policy, persistence hardening,
-human-review UI, payer calls, or execution behavior. Adapter implementations
-remain intentionally absent: FHIR records, payer behavior, policy retrieval,
-model integration, and consequential execution are introduced by their owning
-goals. See
+human-review UI, payer calls, or execution behavior. The
+`caduceus.adapters.fhir_r4` module loads the declared synthetic FHIR R4 fixture
+subset from `fixtures/fhir_r4/baseline_bundle.json` for read-only exact-ID
+retrieval, type listing, subset validation, reference validation, and
+deterministic failure modes. Payer behavior, policy retrieval, model
+integration, and consequential execution are introduced by their owning goals.
+See
 [ADR 0001](docs/adr/0001-local-service-and-adapter-boundaries.md).

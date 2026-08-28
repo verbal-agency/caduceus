@@ -1,0 +1,331 @@
+{
+  "resourceType": "Bundle",
+  "id": "caduceus-g03-baseline",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-syn-001",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-syn-001",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "identifier": [{"system": "urn:caduceus:synthetic:patient", "value": "PATIENT-SYN-001"}],
+        "name": [{"family": "Synthetic", "given": ["Alpha"]}],
+        "gender": "female",
+        "birthDate": "1978-04-10"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:coverage-syn-001",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-syn-001",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "beneficiary": {"reference": "Patient/patient-syn-001"},
+        "payor": [{"display": "Synthetic Payer A"}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:encounter-syn-001",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-syn-001",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "finished",
+        "class": {"system": "http://terminology.hl7.org/CodeSystem/v3-ActCode", "code": "AMB"},
+        "subject": {"reference": "Patient/patient-syn-001"},
+        "period": {"start": "2026-06-01T09:00:00Z", "end": "2026-06-01T09:30:00Z"}
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-syn-001",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-syn-001",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "completed",
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:procedure", "code": "PT6"}], "text": "Six weeks synthetic physical therapy"},
+        "subject": {"reference": "Patient/patient-syn-001"},
+        "encounter": {"reference": "Encounter/encounter-syn-001"},
+        "performedPeriod": {"start": "2026-04-15", "end": "2026-05-31"}
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-syn-001",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-syn-001",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "clinicalStatus": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/condition-clinical", "code": "active"}]},
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:condition", "code": "LUMBAR-PAIN"}], "text": "Synthetic lumbar pain"},
+        "subject": {"reference": "Patient/patient-syn-001"},
+        "encounter": {"reference": "Encounter/encounter-syn-001"},
+        "recordedDate": "2026-06-01"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:servicerequest-syn-001",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-syn-001",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "intent": "order",
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:service", "code": "L-MRI"}], "text": "Synthetic lumbar spine MRI"},
+        "subject": {"reference": "Patient/patient-syn-001"},
+        "encounter": {"reference": "Encounter/encounter-syn-001"},
+        "reasonReference": [{"reference": "Condition/condition-syn-001"}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:claim-syn-001",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-syn-001",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "type": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/claim-type", "code": "professional"}]},
+        "use": "preauthorization",
+        "patient": {"reference": "Patient/patient-syn-001"},
+        "created": "2026-06-02",
+        "provider": {"display": "Synthetic Provider Group"},
+        "priority": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/processpriority", "code": "normal"}]},
+        "insurance": [{"sequence": 1, "focal": true, "coverage": {"reference": "Coverage/coverage-syn-001"}}],
+        "diagnosis": [{"sequence": 1, "diagnosisReference": {"reference": "Condition/condition-syn-001"}}],
+        "item": [{"sequence": 1, "encounter": [{"reference": "Encounter/encounter-syn-001"}], "productOrService": {"coding": [{"system": "urn:caduceus:synthetic:service", "code": "L-MRI"}]}}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:task-syn-001",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-syn-001",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "requested",
+        "intent": "order",
+        "description": "Synthetic prior-authorization case with complete documentation.",
+        "businessStatus": {"text": "review-ready"},
+        "focus": {"reference": "ServiceRequest/servicerequest-syn-001"},
+        "for": {"reference": "Patient/patient-syn-001"},
+        "input": [{"type": {"text": "preauthorization claim"}, "valueReference": {"reference": "Claim/claim-syn-001"}}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:patient-syn-002",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-syn-002",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "identifier": [{"system": "urn:caduceus:synthetic:patient", "value": "PATIENT-SYN-002"}],
+        "name": [{"family": "Synthetic", "given": ["Beta"]}],
+        "gender": "male",
+        "birthDate": "1984-11-22"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:coverage-syn-002",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-syn-002",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "beneficiary": {"reference": "Patient/patient-syn-002"},
+        "payor": [{"display": "Synthetic Payer B"}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:encounter-syn-002",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-syn-002",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "finished",
+        "class": {"system": "http://terminology.hl7.org/CodeSystem/v3-ActCode", "code": "AMB"},
+        "subject": {"reference": "Patient/patient-syn-002"},
+        "period": {"start": "2026-06-03T10:00:00Z", "end": "2026-06-03T10:20:00Z"}
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-syn-002",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-syn-002",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "completed",
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:procedure", "code": "PT4"}], "text": "Four weeks synthetic physical therapy"},
+        "subject": {"reference": "Patient/patient-syn-002"},
+        "encounter": {"reference": "Encounter/encounter-syn-002"},
+        "performedPeriod": {"start": "2026-05-01", "end": "2026-05-28"}
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-syn-002",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-syn-002",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "clinicalStatus": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/condition-clinical", "code": "active"}]},
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:condition", "code": "RADICULOPATHY"}], "text": "Synthetic lumbar radiculopathy"},
+        "subject": {"reference": "Patient/patient-syn-002"},
+        "encounter": {"reference": "Encounter/encounter-syn-002"},
+        "recordedDate": "2026-06-03"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:servicerequest-syn-002",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-syn-002",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "intent": "order",
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:service", "code": "L-MRI"}], "text": "Synthetic lumbar spine MRI"},
+        "subject": {"reference": "Patient/patient-syn-002"},
+        "encounter": {"reference": "Encounter/encounter-syn-002"},
+        "reasonReference": [{"reference": "Condition/condition-syn-002"}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:claim-syn-002",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-syn-002",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "type": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/claim-type", "code": "professional"}]},
+        "use": "preauthorization",
+        "patient": {"reference": "Patient/patient-syn-002"},
+        "created": "2026-06-04",
+        "provider": {"display": "Synthetic Provider Group"},
+        "priority": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/processpriority", "code": "normal"}]},
+        "insurance": [{"sequence": 1, "focal": true, "coverage": {"reference": "Coverage/coverage-syn-002"}}],
+        "diagnosis": [{"sequence": 1, "diagnosisReference": {"reference": "Condition/condition-syn-002"}}],
+        "item": [{"sequence": 1, "encounter": [{"reference": "Encounter/encounter-syn-002"}], "productOrService": {"coding": [{"system": "urn:caduceus:synthetic:service", "code": "L-MRI"}]}}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:task-syn-002",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-syn-002",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "requested",
+        "intent": "order",
+        "description": "Synthetic prior-authorization case with missing identifier scenario.",
+        "businessStatus": {"text": "identifier-review"},
+        "focus": {"reference": "ServiceRequest/servicerequest-syn-002"},
+        "for": {"reference": "Patient/patient-syn-002"},
+        "input": [{"type": {"text": "preauthorization claim"}, "valueReference": {"reference": "Claim/claim-syn-002"}}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:patient-syn-003",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-syn-003",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "identifier": [{"system": "urn:caduceus:synthetic:patient", "value": "PATIENT-SYN-003"}],
+        "name": [{"family": "Synthetic", "given": ["Gamma"]}],
+        "gender": "other",
+        "birthDate": "1991-02-17"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:coverage-syn-003",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-syn-003",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "beneficiary": {"reference": "Patient/patient-syn-003"},
+        "payor": [{"display": "Synthetic Payer C"}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:encounter-syn-003",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-syn-003",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "finished",
+        "class": {"system": "http://terminology.hl7.org/CodeSystem/v3-ActCode", "code": "AMB"},
+        "subject": {"reference": "Patient/patient-syn-003"},
+        "period": {"start": "2026-06-05T13:00:00Z", "end": "2026-06-05T13:40:00Z"}
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-syn-003",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-syn-003",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "completed",
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:procedure", "code": "PT6"}], "text": "Six weeks synthetic physical therapy"},
+        "subject": {"reference": "Patient/patient-syn-003"},
+        "encounter": {"reference": "Encounter/encounter-syn-003"},
+        "performedPeriod": {"start": "2026-04-20", "end": "2026-06-02"}
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:condition-syn-003",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-syn-003",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "clinicalStatus": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/condition-clinical", "code": "active"}]},
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:condition", "code": "SPONDYLOSIS"}], "text": "Synthetic lumbar spondylosis"},
+        "subject": {"reference": "Patient/patient-syn-003"},
+        "encounter": {"reference": "Encounter/encounter-syn-003"},
+        "recordedDate": "2026-06-05"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:servicerequest-syn-003",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-syn-003",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "intent": "order",
+        "code": {"coding": [{"system": "urn:caduceus:synthetic:service", "code": "L-MRI"}], "text": "Synthetic lumbar spine MRI"},
+        "subject": {"reference": "Patient/patient-syn-003"},
+        "encounter": {"reference": "Encounter/encounter-syn-003"},
+        "reasonReference": [{"reference": "Condition/condition-syn-003"}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:claim-syn-003",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-syn-003",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "active",
+        "type": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/claim-type", "code": "professional"}]},
+        "use": "preauthorization",
+        "patient": {"reference": "Patient/patient-syn-003"},
+        "created": "2026-06-06",
+        "provider": {"display": "Synthetic Provider Group"},
+        "priority": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/processpriority", "code": "normal"}]},
+        "insurance": [{"sequence": 1, "focal": true, "coverage": {"reference": "Coverage/coverage-syn-003"}}],
+        "diagnosis": [{"sequence": 1, "diagnosisReference": {"reference": "Condition/condition-syn-003"}}],
+        "item": [{"sequence": 1, "encounter": [{"reference": "Encounter/encounter-syn-003"}], "productOrService": {"coding": [{"system": "urn:caduceus:synthetic:service", "code": "L-MRI"}]}}]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:task-syn-003",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-syn-003",
+        "meta": {"lastUpdated": "2026-08-27T00:00:00Z"},
+        "status": "requested",
+        "intent": "order",
+        "description": "Synthetic prior-authorization case with conflicting encounter dates.",
+        "businessStatus": {"text": "date-conflict-review"},
+        "focus": {"reference": "ServiceRequest/servicerequest-syn-003"},
+        "for": {"reference": "Patient/patient-syn-003"},
+        "input": [{"type": {"text": "preauthorization claim"}, "valueReference": {"reference": "Claim/claim-syn-003"}}]
+      }
+    }
+  ]
+}
